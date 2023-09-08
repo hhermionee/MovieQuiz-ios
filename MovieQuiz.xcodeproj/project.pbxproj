@@ -21,6 +21,7 @@
 		C03F46252AA9D15C007FD7C5 /* QuizResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03F46242AA9D15C007FD7C5 /* QuizResultsViewModel.swift */; };
 		C03F46272AA9D16B007FD7C5 /* QuizQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03F46262AA9D16B007FD7C5 /* QuizQuestion.swift */; };
 		C03F46292AA9D7ED007FD7C5 /* QuestionFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03F46282AA9D7ED007FD7C5 /* QuestionFactoryProtocol.swift */; };
+		C03F462B2AA9E284007FD7C5 /* QuestionFactoryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03F462A2AA9E284007FD7C5 /* QuestionFactoryDelegate.swift */; };
 		C09A8BFC2A6EF55C00C9845F /* YS Display-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C09A8BFA2A6EF4E700C9845F /* YS Display-Bold.ttf */; };
 		C09A8BFD2A6EF56000C9845F /* YS Display-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C09A8BFB2A6EF4E700C9845F /* YS Display-Medium.ttf */; };
 /* End PBXBuildFile section */
@@ -42,6 +43,7 @@
 		C03F46242AA9D15C007FD7C5 /* QuizResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultsViewModel.swift; sourceTree = "<group>"; };
 		C03F46262AA9D16B007FD7C5 /* QuizQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizQuestion.swift; sourceTree = "<group>"; };
 		C03F46282AA9D7ED007FD7C5 /* QuestionFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionFactoryProtocol.swift; sourceTree = "<group>"; };
+		C03F462A2AA9E284007FD7C5 /* QuestionFactoryDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionFactoryDelegate.swift; sourceTree = "<group>"; };
 		C09A8BFA2A6EF4E700C9845F /* YS Display-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YS Display-Bold.ttf"; sourceTree = "<group>"; };
 		C09A8BFB2A6EF4E700C9845F /* YS Display-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YS Display-Medium.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,6 +124,7 @@
 			children = (
 				C03F461F2AA9CE63007FD7C5 /* QuestionFactory.swift */,
 				C03F46282AA9D7ED007FD7C5 /* QuestionFactoryProtocol.swift */,
+				C03F462A2AA9E284007FD7C5 /* QuestionFactoryDelegate.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 				AD5EE5DE284D7887003966EF /* UIColor+Extensions.swift in Sources */,
 				AD7AFA552836189F00399704 /* Array+Extensions.swift in Sources */,
 				C03F46292AA9D7ED007FD7C5 /* QuestionFactoryProtocol.swift in Sources */,
+				C03F462B2AA9E284007FD7C5 /* QuestionFactoryDelegate.swift in Sources */,
 				AD1ABAB62831907B00B3E448 /* MovieQuizViewController.swift in Sources */,
 				C03F46232AA9D136007FD7C5 /* QuizStepViewModel.swift in Sources */,
 				C03F46272AA9D16B007FD7C5 /* QuizQuestion.swift in Sources */,
