@@ -20,8 +20,7 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        alertPresenter = AlertPresenter()
-        alertPresenter?.controller = self
+        alertPresenter = AlertPresenter(controller: self)
         
         questionFactory = QuestionFactory(delegate: self)
         questionFactory?.requestNextQuestion()

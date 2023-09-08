@@ -28,5 +28,8 @@ class AlertPresenter: AlertPresenterProtocol {
         controller?.present(alert, animated: true, completion: nil)
     }
     
+    init(controller: UIViewController? = nil) {
+        self.controller = controller
+    }
     
 }
