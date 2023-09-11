@@ -24,7 +24,89 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate {
         
         questionFactory = QuestionFactory(delegate: self)
         questionFactory?.requestNextQuestion()
+        
+        
+        // играюсь с песочницей
+        print(NSHomeDirectory())
+        // UserDefaults.standard.set(true, forKey: "viewDidLoad")
+        print(Bundle.main.bundlePath)
+        
+        var documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        documentURL.appendPathComponent("inception.json")
+        let jsonString = try? String(contentsOf: documentURL)
+        
+        guard let data = jsonString?.data(using: .utf8) else {
+            return
+        }
+        
+        do {
+            let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+            
+            let movie = getMovie(from: jsonString ?? "")
+            
+        } catch {
+            print("Failed to parse: \(String(describing: jsonString))")
+        }
 
+    }
+    
+    func getMovie(from jsonString: String) -> Movie? {
+        
+        var movie: Movie? = nil
+        
+        do {
+            guard let data = jsonString.data(using: .utf8) else {
+                return nil
+            }
+            
+            let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+            
+            guard let json = json,
+                  let id = json["id"] as? String,
+                  let title = json["title"] as? String,
+                  let year = json["year"] as? Int,
+                  let image = json["image"] as? String,
+                  let releaseDate = json["releaseDate"] as? String,
+                  let runtimeMins = json["runtimeMins"] as? Int,
+                  let directors = json["directors"] as? String,
+                  let actorList = json["actorList"] as? [Any]
+            else {
+                return nil
+            }
+            
+            var actors: [Actor] = []
+            for actor in actorList {
+                guard let actor = actor as? [String: Any],
+                      let id = actor["id"] as? String,
+                      let image = actor["image"] as? String,
+                      let name = actor["name"] as? String,
+                      let asCharacter = actor["asCharacter"] as? String
+                else {
+                    return nil
+                }
+                let newActor = Actor(
+                    id: id,
+                    image: image,
+                    name: name,
+                    asCharacter: asCharacter)
+                actors.append(newActor)
+            }
+            
+            movie = Movie(
+                id: id,
+                title: title,
+                year: year,
+                image: image,
+                releaseDate: releaseDate,
+                runtimeMins: runtimeMins,
+                directors: directors,
+                actorList: actors)
+            
+        } catch {
+            print("Failed to parse: \(jsonString)")
+        }
+            
+        return movie
     }
     
     // MARK: - QuestionFactoryDelegate
